@@ -1,0 +1,15 @@
+<h4>Agregar personaje</h4>
+<!-- ngSubmit es un método nativo que evita que el navegador se recargue cuando se clica el botón-->
+<form class="row" (ngSubmit)="emitCharacter()">
+  <!--NgModel [()] => two wait databiting, se asocia un evento y un atributo al mismo tiempo
+  siempre que veamos la palabra Module, significa que lo que sea va en los inputs
+  ej. ngModule, FormModule, etc
+  -->
+  <input type="text" [(ngModel)]="character.name" name="name" class="form-control mb-2" placeholder="nombre personaje">
+  <input type="number" [(ngModel)]="character.power" name="power" class="form-control mb-2" placeholder="poder">
+
+  <button type="submit" class="btn btn-primary">Agregar</button>
+
+  <!--<pre>{{ character | json }}</pre>
+  esta línea imprimia en la app el objeto que se creaba al añadir un nuevo character-->
+</form>

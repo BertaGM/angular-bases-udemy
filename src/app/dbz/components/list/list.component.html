@@ -1,0 +1,36 @@
+<h4>Listado</h4>
+<ul class="list-group">
+  <!--
+  ngFor se pueden hacer diferentes iteraciones separando las expresiones por ;
+   index es una propiedad que ya exixte en ngFor equivale a la propiedad length
+   firts es otra propiedad nativa de ngFor que sirve para mirar la posición de un elemento
+   dentro de un array. También existe last para el último o even para los números pares
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even
+      <span>Es el primero: {{ isFirst }}</span>
+      <span>Es el último: {{ isLast }}</span>
+      <span>Es par: {{ isEven }}</span>
+      poner [] llaves cuadradas le decimos a Angular que lo asigne automáticamente
+      ej. [class]="text-primary" la expresión tiene que ser una expresión de Javascript
+-->
+
+  <li *ngFor="let character of characterList;
+    let characterPosition = index;
+    let isFirst = first;
+      let isLast = last;
+      let isEven = even" class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{ 'list-group-item-primary': isFirst,
+        'list-group-item-info': isLast
+      }">
+    <div>
+      <span class="text-primary">{{ characterPosition + 1 }} </span>
+      <span>{{ character.name }} </span>
+      <strong>Power:</strong>
+      <span> {{ character.power }}</span>
+    </div>
+
+    <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger">X</button>
+    <!-- character.id! con esto indicamos que siempre va a recibir un id, por lo tanto nunca
+     recibirá un undefined-->
+  </li>
+</ul>

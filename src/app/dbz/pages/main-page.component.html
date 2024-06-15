@@ -1,0 +1,19 @@
+<h1>DBZ Personajes</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- escuchar evento onDeleteId de list.component se hace con (nombre método que emite el evento)-->
+    <!-- [characterList]="characters" es la manera de usar los datos que nos llegan de la madre-->
+    <app-dbz-list [characterList]="characters" (onDelete)="onDeleteCharacter($event)"></app-dbz-list>
+  </div>
+
+  <div class="col">
+    <!-- Para mandra la info de las hijas a la madre
+     $event => nombre específico que sirve para indicar que el valor que se espera es lo que voy a recibir
+     es una validación de tipo -->
+    <app-dbz-add-character (onNewCharacter)="onNewCharacter($event)"></app-dbz-add-character>
+  </div>
+</div>
+
+<!-- Paréntesis () => son eventos, llaves cuadradas [] => son atributos-->
